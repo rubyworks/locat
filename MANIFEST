@@ -1,0 +1,7 @@
+#!mast .yardopts .ruby bin lib qed test [A-Z]*.*
+.ruby
+bin/locat
+lib/locat/git-line-count.rb
+lib/locat/template/index.html
+lib/locat.rb
+README.rdoc

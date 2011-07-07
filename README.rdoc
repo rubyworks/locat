@@ -1,0 +1,6 @@
+= LOCAT
+
+== DESCRIPTION
+
+Locat is a simple LOC code analysis tool for Ruby.
+

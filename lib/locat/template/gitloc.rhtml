@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <title>GIT LOC Visualization</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style type="text/css" media="screen">
+    /* http://raphaeljs.com/demo.css */
+    body {
+        background: #000;
+        color: #fff;
+        font: 300 100.1% "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+    }
+    #holder {
+        height: 480px;
+        left: 50%;
+        margin: -240px 0 0 -320px;
+        position: absolute;
+        top: 50%;
+        width: 800px;
+    }
+    #copy {
+        bottom: 0;
+        font: 300 .7em "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+        position: absolute;
+        right: 1em;
+        text-align: right;
+    }
+    #copy a {
+        color: #fff;
+    }
+  </style>
+
+  <script type="text/javascript" charset="utf-8">
+    /* raphael.js */
+    //#{open('http://github.com/DmitryBaranovskiy/raphael/raw/master/raphael.js').read}
+    #{open('http://cdnjs.cloudflare.com/ajax/libs/raphael/1.5.2/raphael-min.js').read}
+
+    /* raphael.path.methods.js */
+    #{open('http://github.com/DmitryBaranovskiy/raphael/raw/master/plugins/raphael.path.methods.js').read}
+
+    /* jquery.js */
+    //#{open('http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js').read}
+    #{open('http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js').read}
+
+    /* raphael.js */
+    #{open('http://raphaeljs.com/analytics.js').read.gsub('"" : "s"', '"" : ""').gsub('height = 250', 'height = 400').gsub('Y * data[i]', 'Y * parseInt(data[i])').gsub('hit', 'LOC').gsub('dot.attr("r", 5);', 'dot.attr("r", 0);').gsub('r.circle(x, y, 5)', 'r.circle(x, y, 0)').gsub('{text: lbl + " September 2008"}', '{text: lbl}')}
+  </script>
+</head>
+<body>
+  <h1 style="text-align: center;">#{TITLE}</h1>
+  <table id="data">
+    <tfoot>
+      <tr>
+      <% commits_with_loc.each_with_index do |commit, index| %>
+        <th><%= commit[:date] if index % mod == 0 || index == commits_with_loc.size - 1 %></th>
+      <% end %>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+      <% commits_with_loc.each_with_index do |commit, index| %>
+        <td><%= commit[:loc] %></td>
+      <% end %>
+       </tr>
+    </tbody>
+  </table>
+
+  <div id="holder"></div>
+
+  <p id="copy">
+    Git LOC-per-commit visualization by @tiegz using <a href="http://grit.rubyforge.org/">grit.rb</a>
+    &amp; <a href="http://raphaeljs.com/">Raphaël</a>—JavaScript Vector Library
+  </p>
+</body>
+</html>

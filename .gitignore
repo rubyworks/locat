@@ -1,0 +1,9 @@
+.yardoc
+.rdoc
+.ri
+doc
+pkg
+tmp
+site/doc
+site/log
+site/qed
