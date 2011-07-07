@@ -26,7 +26,7 @@ module LOCat
 
       @output_file      = OUTPUT_FILE
       @file_extension   = FILE_EXTENSION
-      @exclude          = EXCLUDE
+      @exclude          = EXCLUDED
       @per_day          = PER_DAY
     end
 
@@ -36,11 +36,12 @@ module LOCat
     end
 
     #
-    def recursive_loc_count(tree_or_blob)
+    #
+    def recursive_loc_count(tree_or_blob, total_count)
       if tree_or_blob.is_a?(Grit::Tree)
         # A directory
         tree_or_blob.contents.each do |tob|
-          recursive_loc_count(tob)
+          recursive_loc_count(tob, total_count)
         end
       elsif tree_or_blob.is_a?(Grit::Blob) \
             && tree_or_blob.name =~ @file_extension \
@@ -66,7 +67,9 @@ module LOCat
         if !@per_day || (@per_day && this_date != current_date)
           # Record this commit as end-of-day commit
           current_date = this_date
-          commit.tree.contents.each(&recursive_loc_count)
+          commit.tree.contents.each do |tob|
+            recursive_loc_count(tob, total_count)
+          end
           commits_with_loc << {
             :date => commit.committed_date.to_datetime.strftime("%-m/%-d/%y"),
             :id   => commit.id,
@@ -77,7 +80,12 @@ module LOCat
         end
       end
 
-      mod = (commits_with_loc.size / 5).round
+      if commits_with_loc.size > 5
+        mod = (commits_with_loc.size / 5).round
+      else
+        mod = 2
+      end
+
       commits_with_loc.reverse!
 
       template_file = File.dirname(__FILE__) + '/template/gitloc.rhtml'
