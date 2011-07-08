@@ -8,10 +8,10 @@ authors: Thomas Sawyer
 license: BSD-2-Clause
 
 description:
-  LOCat is a customizable Line-Of-Code metric 
-  system. LOC might not be the most useful metric
-  in the universe but it still provide useful
-  inforamtion and can be a lot of fun.
+  LOCat is a customizable LOC analysis tool.
+  LOC might not be the most useful metric
+  in the universe, but it still provides useful
+  information and can be a lot of fun.
 
 requires:
   - ansi
@@ -21,8 +21,7 @@ requires:
 resources:
   home: http://rubyworks.github.com/locat
   code: http://github.com/rubyworks/locat
-  docs: http://wiki.github.com/rubyworks/locat/docs/qed
-  wiki: http://wiki.github.com/rubyworks/locat
+  docs: http://rubydoc.info/gems/locat/frames
   bugs: http://github.com/rubyworks/locat/issues
   mail: http://groups.google.com/group/rubyworks-mailinglist
 
