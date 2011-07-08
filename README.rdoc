@@ -3,14 +3,14 @@
 
 == DESCRIPTION
 
-Locat is a fancy LOC code analysis tool.
+LOCat is a fancy LOC code analysis tool.
 
 
 == RESOURCES
 
-* {Homepage}{http://rubyworks.github.com/locat}
-* {Development}{http://github.com/rubyworks/locat}
-* {Issue Tracker}{http://github.com/rubyworks/locat/issues}
+* {Homepage}[http://rubyworks.github.com/locat]
+* {Development}[http://github.com/rubyworks/locat]
+* {Issue Tracker}[http://github.com/rubyworks/locat/issues]
 * {Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
 
 
