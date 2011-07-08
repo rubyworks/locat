@@ -47,7 +47,7 @@ Then run `locat`, e.g.
 
 == COPYRIGHT
 
-Copyright (c) 2001 Thomas Sawyer, Rubyworks
+Copyright (c) 2011 Thomas Sawyer, Rubyworks
 
 BSD 2-Clause License
 

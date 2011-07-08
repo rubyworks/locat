@@ -14,9 +14,10 @@ yard:
   priority: -1
 
 qedoc:
-  files : qed/
-  output: doc/QED.rdoc
-  title : AE Demonstrandum
+  files  : qed/
+  output : doc/QED.rdoc
+  title  : LOCat Demonstrandum
+  active : false
 
 email:
   service : Email
