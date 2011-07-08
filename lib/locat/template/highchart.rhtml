@@ -19,11 +19,15 @@
 
   .tab{ padding: 20px; border: 1px solid #ccc; }
   .chart{ padding-bottom: 40px; }
-  .chart-select{ text-align: center; font-size: 12px; }
+  .chart-select{ text-align: left; font-size: 12px; padding-left: 20px; }
 </style>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/highcharts/2.1.5/highcharts.js" type="text/javascript"></script>
+
+<script>
+<%= javascript %>
+</script>
 
 <script>
 var data = <%= to_json %>;
@@ -33,73 +37,20 @@ var data = <%= to_json %>;
   var chart = {};
 
   $(document).ready(function() {
-    chart['pcnt']  = build_chart('pcnt',  'column');
-    chart['loc']   = build_chart('loc',   'column');
-    chart['ratio'] = build_chart('ratio', 'column');
+    chart['pcnt']  = create_chart('pcnt',  data['pcnt'],  'pie');
+    chart['loc']   = create_chart('loc',   data['loc'],   'column');
+    chart['ratio'] = create_chart('ratio', data['ratio'], 'column');
+    chart['scm']   = create_chart('scm',   data['scm'],   'line');
   });
 </script>
 
 <script>
-  function chart_options(chart_id, chart_type){
-    options = {
-        chart: {
-            renderTo: 'container_' + chart_id,
-            type: chart_type
-        },
-        title: {
-            text: 'By Types'
-        },
-        tooltip: {
-            enable: true 
-        },
-        xAxis: {
-            categories: []
-        },
-        yAxis: {
-            title: {
-                text: chart_id
-            }
-        },
-        series: []
-    };
-
-    $.each(data[chart_id], function(lineNo, line) {
-        // header line containes categories
-        if (lineNo == 0) {
-            $.each(line, function(itemNo, item) {
-                if (itemNo > 0) options.xAxis.categories.push(item);
-            });
-        }
-        // the rest of the lines contain data with their name in the first position
-        else {
-            var series = {
-                data: []
-            };
-            $.each(line, function(itemNo, item) {
-                if (itemNo == 0) {
-                    series.name = item;
-                    //series.type = chart_type;
-                } else {
-                    series.data.push(parseFloat(item));
-                }
-            });
-            options.series.push(series);
-        }
-    });
-    return(options);
-  };
-
-  function build_chart(chart_id, chart_type){
-    options = chart_options(chart_id, chart_type);
-    return(new Highcharts.Chart(options));
-  };
-
   function rechart(chart_id, chart_type){
     chart[chart_id].destroy();
-    chart[chart_id] = build_chart(chart_id, chart_type);
+    chart[chart_id] = create_chart(chart_id, data[chart_id], chart_type);
   };
 
-  function chtab(chart_id){
+  function change_tab(chart_id){
     $('.tab').hide(function(){
       $('#tab-' + chart_id).show();
     });
@@ -111,9 +62,12 @@ var data = <%= to_json %>;
   <h1><%= config.title %></h1>
 
   <div id="nav">
-    <button onclick="chtab('loc');">LOC</button>
-    <button onclick="chtab('pcnt');">Percent</button>
-    <button onclick="chtab('ratio');">Ratio</button>
+    <button onclick="change_tab('loc');">LOC</button>
+    <button onclick="change_tab('pcnt');">Percent</button>
+    <button onclick="change_tab('ratio');">Ratio</button>
+    <% if scm? %>
+      <button onclick="change_tab('scm');">SCM</button>
+    <% end %>
   </div>
 
   <!-- LOC CHART -->
@@ -143,7 +97,7 @@ var data = <%= to_json %>;
       </table>
     </div>
 
-    <div id="container_loc" style="width: 95%; height: 450px;"></div>
+    <div id="container-loc" style="width: 95%; height: 450px;"></div>
 
     <div class="chart-select">
       <input type="radio" name="ratio" value="column"     onclick="rechart('loc', 'column');" />     Column
@@ -191,7 +145,7 @@ var data = <%= to_json %>;
       </table>
     </div>
 
-    <div id="container_pcnt" style="width: 95%; height: 450px;"></div>
+    <div id="container-pcnt" style="width: 95%; height: 450px;"></div>
 
     <div class="chart-select">
       <input type="radio" name="ratio" value="column"     onclick="rechart('pcnt', 'column');" />     Column
@@ -239,7 +193,7 @@ var data = <%= to_json %>;
       </table>
     </div>
 
-    <div id="container_ratio" style="width: 95%; height: 450px;"></div>
+    <div id="container-ratio" style="width: 95%; height: 450px;"></div>
 
     <div class="chart-select">
       <input type="radio" name="ratio" value="column"     onclick="rechart('ratio', 'column');" />     Column
@@ -255,6 +209,32 @@ var data = <%= to_json %>;
     </div>
 
   </div>
+
+<% if scm? %>
+
+  <!-- SCM CHART -->
+
+  <div id="tab-scm" class="tab" style="display: none;">
+
+    <div id="container-scm" style="width: 95%; height: 450px;"></div>
+
+    <div class="chart-select">
+      <input type="radio" name="ratio" value="column"     onclick="rechart('scm', 'column');" />     Column
+      <input type="radio" name="ratio" value="scatter"    onclick="rechart('scm', 'scatter');" />    Scatter
+      <input type="radio" name="ratio" value="line"       onclick="rechart('scm', 'line');" />       Line
+      <input type="radio" name="ratio" value="spline"     onclick="rechart('scm', 'spline');" />     Spline
+      <!--
+      <input type="radio" name="ratio" value="area"       onclick="rechart('scm', 'area');" />       Area
+      <input type="radio" name="ratio" value="areaspline" onclick="rechart('scm', 'areaspline');" /> Area Spline
+      <input type="radio" name="ratio" value="pie"        onclick="rechart('scm', 'pie');" />        Pie Chart
+      -->
+    </div>
+
+  </div>
+
+<% end %>
+
+  <!-- FOOTER -->
 
   <div id="footer">
     <a href="http://rubyworks.github.com/locat">LOCat v0.1.0</a>,

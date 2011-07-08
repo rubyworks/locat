@@ -9,26 +9,26 @@ module LOCat
 
   #
   def self.cli(*argv)
-    options = {:files=>nil, :output=>nil}
+    options = {}
 
     OptionParser.new do |opt|
-      opt.on('--template', '-t [NAME]', 'template') do |template|
-        options[:template] = template
+      opt.on('-t', '--template NAME', 'template') do |name|
+        options[:template] = name
       end
-      opt.on('--output', '-o [FILE]', 'output file') do |output|
+      opt.on('-o', '--output FILE', 'output file') do |output|
         options[:output] = output
       end
-      opt.on('--debug',  '-D', 'run in debug mode') do
+      opt.on('-D', '--debug', 'run in debug mode') do
         $DEBUG = true
       end
-      opt.on('--help',   '-h', 'display this help message') do
+      opt.on('-h', '--help', 'display this help message') do
         puts opt
         exit 0
       end
-    end.parse(argv)
+    end.parse!(argv)
 
     options[:files] = argv
-   
+
     command = Command.new(options)
     command.run
   end
@@ -76,9 +76,9 @@ module LOCat
       if template == 'json'
         json = counter.to_json
         save_file(json)
-      elsif template == 'gitloc'
-        gitloc = GitLOC.new
-        save_file(gitloc.generate)
+      #elsif template == 'gitloc'
+      #  gitloc = GitLOC.new
+      #  save_file(gitloc.generate)
       else
         template_file = File.join(template_dir, template + '.rhtml')
         template = ERB.new(File.read(template_file))
@@ -108,6 +108,8 @@ module LOCat
   #
   class Counter
 
+    TEMPLATE_DIRECTORY = File.dirname(__FILE__) + '/locat/template'
+
     def initialize(options)
       options.each do |k,v|
         send("#{k}=", v)
@@ -135,23 +137,31 @@ module LOCat
     end
 
     # Resolve file glob.
-    def resolve_files(glob)
-      if File.directory?(glob)
-        glob = File.join(glob, '**', '*')
-      end
-      if files.nil? or files.empty?
-        Dir[glob].flatten
+    def resolve_files(pattern)
+      case pattern
+      when String
+        Dir['**/*'].select{ |path| File.fnmatch(pattern, path) }
+      when Regexp
+        Dir['**/*'].select{ |path| pattern =~ path }
       else
-        Dir[glob].flatten & files
+        []
       end
+      #if File.directory?(glob)
+      #  glob = File.join(glob, '**', '*')
+      #end
+      #if files.nil? or files.empty?
+      #  Dir[glob].flatten
+      #else
+      #  Dir[glob].flatten & files
+      #end
     end
 
     #
     def counts
       @counts ||= (
         table = Hash.new{ |h,k| h[k] = 0 }
-        config.matchers.each do |glob, block|
-          files = resolve_files(glob)
+        config.matchers.each do |pattern, block|
+          files = resolve_files(pattern)
           files.each do |file|
             File.readlines(file).each do |line|
               line = line.chomp("\n")
@@ -194,7 +204,11 @@ module LOCat
           y = 1
           rcounts.each do |type2, count2|
             r[0][y] = type2
-            r[x][y] = (1000 * (count2.to_f / count1.to_f)).round.to_f / 1000.0
+            if count2 == 0 or count2 == 0
+              r[x][y] = 0
+            else
+              r[x][y] = (1000 * (count2.to_f / count1.to_f)).round.to_f / 1000.0
+            end
             y += 1
           end
           x += 1
@@ -217,13 +231,39 @@ module LOCat
     def to_json
       { :loc   => loc,
         :pcnt  => percent,
-        :ratio => ratio
+        :ratio => ratio,
+        :scm   => scm
       }.to_json
     end
 
     #
     def __binding__
       binding
+    end
+
+    def javascript
+      @javascript ||= (
+        File.read(File.join(TEMPLATE_DIRECTORY, 'javascript.js'))
+      )
+    end
+
+    #
+    def gitloc
+      @gitloc ||= GitLOC.new(config)
+    end
+
+    #
+    def scm?
+      File.directory?('.git')
+    end
+
+    #
+    def scm
+      if scm?
+        gitloc.timeline_table
+      else
+        nil
+      end
     end
 
   end
@@ -249,7 +289,7 @@ module LOCat
 
     #
     def title
-       metadata['title']
+      "The LOCat on " + metadata['title']
     end
 
     private
