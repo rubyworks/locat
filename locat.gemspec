@@ -10,7 +10,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2011-07-07 00:00:00 Z
+date: 2011-07-08 00:00:00 Z
 dependencies: 
 - !ruby/object:Gem::Dependency 
   name: ansi
@@ -56,10 +56,17 @@ extra_rdoc_files:
 files: 
 - .ruby
 - bin/locat
-- lib/locat/git-line-count.rb
-- lib/locat/template/index.html
+- lib/locat/command.rb
+- lib/locat/counter.rb
+- lib/locat/gitloc.rb
+- lib/locat/matcher.rb
+- lib/locat/template/graphael.rhtml
+- lib/locat/template/highchart.rhtml
+- lib/locat/template/javascript.js
+- lib/locat/template.rb
 - lib/locat.rb
 - README.rdoc
+- COPYING.rdoc
 homepage: http://rubyworks.github.com/locat
 licenses: 
 - BSD-2-Clause

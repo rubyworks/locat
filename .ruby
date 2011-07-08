@@ -1,10 +1,12 @@
 --- 
 name: locat
+version: 0.1.0
 title: LOCat
 summary: Lines of Code Attache
 description: LOCat is a customizable Line-Of-Code metric system. LOC might not be the most useful metric in the universe but it still provide useful inforamtion and can be a lot of fun.
 loadpath: 
 - lib
+manifest: MANIFEST
 requires: 
 - name: ansi
   version: 0+
@@ -44,4 +46,3 @@ resources:
 repositories: 
   public: git://github.com/rubyworks/locat.git
 spec_version: 1.0.0
-version: ""
