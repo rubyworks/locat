@@ -1,0 +1,11 @@
+= RELEASE HISTORY
+
+== 0.1.0 | 2011-07-08 | The Cat's Meow
+
+This is the first release of LOCat a 
+fancy LOC analysis tool.
+
+Changes:
+
+* Its all "change" at this point!
+
