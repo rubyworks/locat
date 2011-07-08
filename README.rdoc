@@ -1,6 +1,55 @@
 = LOCAT
 
+
 == DESCRIPTION
 
-Locat is a simple LOC code analysis tool for Ruby.
+Locat is a fancy LOC code analysis tool.
+
+
+== RESOURCES
+
+* {Homepage}{http://rubyworks.github.com/locat}
+* {Development}{http://github.com/rubyworks/locat}
+* {Issue Tracker}{http://github.com/rubyworks/locat/issues}
+* {Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
+
+
+== SYNOPSIS
+
+Define a `.locat` Ruby script in your project, e.g.
+
+    match 'lib/**.rb' do |file, line|
+      case line
+      when /^\s*#/
+        'Comment'
+      when /^\s*$/
+        'Blank'
+      else
+        'Code'
+      end
+    end
+
+    match 'test/**.rb' do |file, line|
+      case line
+      when /^\s*#/
+        'Comment'
+      when /^\s*$/
+        'Blank'
+      else
+        'Test'
+      end
+    end
+
+Then run `locat`, e.g.
+
+    $ locat -o locat.html
+
+
+== COPYRIGHT
+
+Copyright (c) 2001 Thomas Sawyer, Rubyworks
+
+BSD 2-Clause License
+
+See COPYING.rdoc for details.
 
