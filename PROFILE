@@ -14,6 +14,7 @@ description:
   information and can be a lot of fun.
 
 requires:
+  - grit
   - ansi
   - detroit (build)
   - qed     (test)
