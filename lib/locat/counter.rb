@@ -111,7 +111,7 @@ module LOCat
 
     #
     def gitloc
-      @gitloc ||= GitLOC.new(config)
+      @gitloc ||= GitLOC.new(matcher)
     end
 
     #

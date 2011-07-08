@@ -19,14 +19,14 @@ module LOCat
     PER_DAY        = false # true = show 1-commit-per-day, false = show all commits
     DATA_POINTS    = 25
 
-    attr :config
+    attr :matcher
 
     attr :repo
 
     #
-    def initialize(config)
-      @config = config
-      @repo   = Repo.new(".")
+    def initialize(matcher)
+      @matcher = matcher
+      @repo    = Repo.new(".")
 
       @data_points      = DATA_POINTS
       @output_file      = OUTPUT_FILE
@@ -50,7 +50,7 @@ module LOCat
         end
       elsif tree_or_blob.is_a?(Grit::Blob) # file
         file = dir ? File.join(dir, tree_or_blob.name) : tree_or_blob.name
-        config.matchers.each do |glob, block|
+        matcher.each do |glob, block|
           if File.fnmatch?(glob, file)
             tree_or_blob.data.lines.each do |line|
               group = block.call(file, line)

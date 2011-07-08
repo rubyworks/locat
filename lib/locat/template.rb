@@ -43,6 +43,11 @@ module LOCat
     end
 
     #
+    def table_scm
+      counter.scm
+    end
+
+    #
     def to_json
       h = {}
       h[:loc]   = table_loc
