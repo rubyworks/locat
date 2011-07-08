@@ -1,7 +1,8 @@
 <html>
 
 <head>
-<title>LOCat - <%= config.title %></title>
+<title>LOCat - <%= title %></title>
+<link rel="icon" type="image/jpg" href="http://rubyworks.github.com/locat/assets/images/icon.jpg" />
 
 <style>
   body{ background: white; padding: 5px 30px; }
@@ -59,14 +60,14 @@ var data = <%= to_json %>;
 </head>
 
 <body>
-  <h1><%= config.title %></h1>
+  <h1><%= title %></h1>
 
   <div id="nav">
-    <button onclick="change_tab('loc');">LOC</button>
-    <button onclick="change_tab('pcnt');">Percent</button>
-    <button onclick="change_tab('ratio');">Ratio</button>
+    <button onclick="change_tab('loc');">Counts</button>
+    <button onclick="change_tab('pcnt');">Percentages</button>
+    <button onclick="change_tab('ratio');">Ratios</button>
     <% if scm? %>
-      <button onclick="change_tab('scm');">SCM</button>
+      <button onclick="change_tab('scm');">Timeline</button>
     <% end %>
   </div>
 
@@ -74,7 +75,7 @@ var data = <%= to_json %>;
 
   <div id="tab-loc" class="tab">
 
-    <h2>LOC</h2>
+    <h2>LINE COUNTS</h2>
 
     <div class="chart">
       <table id="loc" border="1">
@@ -100,16 +101,16 @@ var data = <%= to_json %>;
     <div id="container-loc" style="width: 95%; height: 450px;"></div>
 
     <div class="chart-select">
-      <input type="radio" name="ratio" value="column"     onclick="rechart('loc', 'column');" />     Column
-      <input type="radio" name="ratio" value="bar"        onclick="rechart('loc', 'bar');" />        Bar
-      <input type="radio" name="ratio" value="scatter"    onclick="rechart('loc', 'scatter');" />    Scatter
+      <input type="radio" name="loc" value="column"     onclick="rechart('loc', 'column');" />     Column
+      <input type="radio" name="loc" value="bar"        onclick="rechart('loc', 'bar');" />        Bar
+      <input type="radio" name="loc" value="scatter"    onclick="rechart('loc', 'scatter');" />    Scatter
       <!--
-      <input type="radio" name="ratio" value="line"       onclick="rechart('loc', 'line');" />       Line
-      <input type="radio" name="ratio" value="spline"     onclick="rechart('loc', 'spline');" />     Spline
-      <input type="radio" name="ratio" value="area"       onclick="rechart('loc', 'area');" />       Area
-      <input type="radio" name="ratio" value="areaspline" onclick="rechart('loc', 'areaspline');" /> Area Spline
+      <input type="radio" name="loc" value="line"       onclick="rechart('loc', 'line');" />       Line
+      <input type="radio" name="loc" value="spline"     onclick="rechart('loc', 'spline');" />     Spline
+      <input type="radio" name="loc" value="area"       onclick="rechart('loc', 'area');" />       Area
+      <input type="radio" name="loc" value="areaspline" onclick="rechart('loc', 'areaspline');" /> Area Spline
       -->
-      <input type="radio" name="ratio" value="pie"        onclick="rechart('loc', 'pie');" />        Pie Chart
+      <input type="radio" name="loc" value="pie"        onclick="rechart('loc', 'pie');" />        Pie Chart
     </div>
 
   </div>
@@ -118,19 +119,19 @@ var data = <%= to_json %>;
 
   <div id="tab-pcnt" class="tab" style="display: none;">
 
-    <h2>PERECNT</h2>
+    <h2>PERCENTAGES</h2>
 
     <div class="chart">
       <table id="pcnt">
         <thead>
         <tr>
-        <% percent[0].each do |h| %>
+        <% table_pcnt[0].each do |h| %>
           <th scope="col"><%= h %></th>
         <% end %>
         </tr>
         </thead>
         <tbody>
-        <% percent[1..-1].each do |c| %>
+        <% table_pcnt[1..-1].each do |c| %>
           <tr>
             <% c.each_with_index do |v, j| %>
               <% if j == 0 %>
@@ -148,16 +149,16 @@ var data = <%= to_json %>;
     <div id="container-pcnt" style="width: 95%; height: 450px;"></div>
 
     <div class="chart-select">
-      <input type="radio" name="ratio" value="column"     onclick="rechart('pcnt', 'column');" />     Column
-      <input type="radio" name="ratio" value="bar"        onclick="rechart('pcnt', 'bar');" />        Bar
-      <input type="radio" name="ratio" value="scatter"    onclick="rechart('pcnt', 'scatter');" />    Scatter
+      <input type="radio" name="pcnt" value="column"     onclick="rechart('pcnt', 'column');" />     Column
+      <input type="radio" name="pcnt" value="bar"        onclick="rechart('pcnt', 'bar');" />        Bar
+      <input type="radio" name="pcnt" value="scatter"    onclick="rechart('pcnt', 'scatter');" />    Scatter
       <!--
-      <input type="radio" name="ratio" value="line"       onclick="rechart('pcnt', 'line');" />       Line
-      <input type="radio" name="ratio" value="spline"     onclick="rechart('pcnt', 'spline');" />     Spline
-      <input type="radio" name="ratio" value="area"       onclick="rechart('pcnt', 'area');" />       Area
-      <input type="radio" name="ratio" value="areaspline" onclick="rechart('pcnt', 'areaspline');" /> Area Spline
+      <input type="radio" name="pcnt" value="line"       onclick="rechart('pcnt', 'line');" />       Line
+      <input type="radio" name="pcnt" value="spline"     onclick="rechart('pcnt', 'spline');" />     Spline
+      <input type="radio" name="pcnt" value="area"       onclick="rechart('pcnt', 'area');" />       Area
+      <input type="radio" name="pcnt" value="areaspline" onclick="rechart('pcnt', 'areaspline');" /> Area Spline
       -->
-      <input type="radio" name="ratio" value="pie"        onclick="rechart('pcnt', 'pie');" />        Pie Chart
+      <input type="radio" name="pcnt" value="pie"        onclick="rechart('pcnt', 'pie');" />        Pie Chart
     </div>
 
   </div>
@@ -172,13 +173,13 @@ var data = <%= to_json %>;
       <table id="ratio">
         <thead>
         <tr>
-        <% ratio[0].each do |h| %>
+        <% table_ratio[0].each do |h| %>
           <th scope="col"><%= h %></th>
         <% end %>
         </tr>
         </thead>
         <tbody>
-        <% ratio[1..-1].each do |c| %>
+        <% table_ratio[1..-1].each do |c| %>
           <tr>
             <% c.each_with_index do |v, j| %>
               <% if j == 0 %>
@@ -216,17 +217,19 @@ var data = <%= to_json %>;
 
   <div id="tab-scm" class="tab" style="display: none;">
 
+    <h2>TIMELINE</h2>
+
     <div id="container-scm" style="width: 95%; height: 450px;"></div>
 
     <div class="chart-select">
-      <input type="radio" name="ratio" value="column"     onclick="rechart('scm', 'column');" />     Column
-      <input type="radio" name="ratio" value="scatter"    onclick="rechart('scm', 'scatter');" />    Scatter
-      <input type="radio" name="ratio" value="line"       onclick="rechart('scm', 'line');" />       Line
-      <input type="radio" name="ratio" value="spline"     onclick="rechart('scm', 'spline');" />     Spline
+      <input type="radio" name="scm" value="column"     onclick="rechart('scm', 'column');" />     Column
+      <input type="radio" name="scm" value="scatter"    onclick="rechart('scm', 'scatter');" />    Scatter
+      <input type="radio" name="scm" value="line"       onclick="rechart('scm', 'line');" />       Line
+      <input type="radio" name="scm" value="spline"     onclick="rechart('scm', 'spline');" />     Spline
       <!--
-      <input type="radio" name="ratio" value="area"       onclick="rechart('scm', 'area');" />       Area
-      <input type="radio" name="ratio" value="areaspline" onclick="rechart('scm', 'areaspline');" /> Area Spline
-      <input type="radio" name="ratio" value="pie"        onclick="rechart('scm', 'pie');" />        Pie Chart
+      <input type="radio" name="scm" value="area"       onclick="rechart('scm', 'area');" />       Area
+      <input type="radio" name="scm" value="areaspline" onclick="rechart('scm', 'areaspline');" /> Area Spline
+      <input type="radio" name="scm" value="pie"        onclick="rechart('scm', 'pie');" />        Pie Chart
       -->
     </div>
 
