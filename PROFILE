@@ -8,10 +8,10 @@ authors: Thomas Sawyer
 license: BSD-2-Clause
 
 description:
-  LOCat is a customizable LOC analysis tool.
-  LOC might not be the most useful metric
-  in the universe, but it still provides useful
-  information and can be a lot of fun.
+  LOCat is a customizable Lines-Of-Code analysis tool.
+  LOC might not be the most useful metric in the universe,
+  but it still provides useful information and can be
+  a lot of fun.
 
 requires:
   - grit

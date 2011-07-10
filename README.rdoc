@@ -1,9 +1,9 @@
-= LOCAT
+= LOCat
 
 
 == DESCRIPTION
 
-LOCat is a fancy LOC code analysis tool.
+LOCat is a fancy Lines-Of-Code analysis tool.
 
 
 == RESOURCES
