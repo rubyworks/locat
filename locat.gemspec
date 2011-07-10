@@ -2,7 +2,7 @@
 name: locat
 version: !ruby/object:Gem::Version 
   prerelease: 
-  version: 0.1.0
+  version: 0.1.1
 platform: ruby
 authors: 
 - Thomas Sawyer
@@ -10,10 +10,10 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2011-07-08 00:00:00 Z
+date: 2011-07-10 00:00:00 Z
 dependencies: 
 - !ruby/object:Gem::Dependency 
-  name: ansi
+  name: grit
   prerelease: false
   requirement: &id001 !ruby/object:Gem::Requirement 
     none: false
@@ -24,7 +24,7 @@ dependencies:
   type: :runtime
   version_requirements: *id001
 - !ruby/object:Gem::Dependency 
-  name: detroit
+  name: ansi
   prerelease: false
   requirement: &id002 !ruby/object:Gem::Requirement 
     none: false
@@ -32,10 +32,10 @@ dependencies:
     - - ">="
       - !ruby/object:Gem::Version 
         version: "0"
-  type: :development
+  type: :runtime
   version_requirements: *id002
 - !ruby/object:Gem::Dependency 
-  name: qed
+  name: detroit
   prerelease: false
   requirement: &id003 !ruby/object:Gem::Requirement 
     none: false
@@ -45,7 +45,18 @@ dependencies:
         version: "0"
   type: :development
   version_requirements: *id003
-description: LOCat is a customizable Line-Of-Code metric system. LOC might not be the most useful metric in the universe but it still provide useful inforamtion and can be a lot of fun.
+- !ruby/object:Gem::Dependency 
+  name: qed
+  prerelease: false
+  requirement: &id004 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+  type: :development
+  version_requirements: *id004
+description: LOCat is a customizable Lines-Of-Code analysis tool. LOC might not be the most useful metric in the universe, but it still provides useful information and can be a lot of fun.
 email: transfire@gmail.com
 executables: 
 - locat
@@ -65,11 +76,11 @@ files:
 - lib/locat/template/javascript.js
 - lib/locat/template.rb
 - lib/locat.rb
+- HISTORY.rdoc
 - README.rdoc
 - COPYING.rdoc
 homepage: http://rubyworks.github.com/locat
 licenses: 
-- BSD-2-Clause
 - BSD-2-Clause
 post_install_message: 
 rdoc_options: 

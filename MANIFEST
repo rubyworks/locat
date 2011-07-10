@@ -10,5 +10,6 @@ lib/locat/template/highchart.rhtml
 lib/locat/template/javascript.js
 lib/locat/template.rb
 lib/locat.rb
+HISTORY.rdoc
 README.rdoc
 COPYING.rdoc

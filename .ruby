@@ -1,13 +1,17 @@
 --- 
 name: locat
-version: 0.1.0
+version: 0.1.1
 title: LOCat
 summary: Lines of Code Attache
-description: LOCat is a customizable Line-Of-Code metric system. LOC might not be the most useful metric in the universe but it still provide useful inforamtion and can be a lot of fun.
+description: LOCat is a customizable Lines-Of-Code analysis tool. LOC might not be the most useful metric in the universe, but it still provides useful information and can be a lot of fun.
 loadpath: 
 - lib
 manifest: MANIFEST
 requires: 
+- name: grit
+  version: 0+
+  group: []
+
 - name: ansi
   version: 0+
   group: []
@@ -39,8 +43,7 @@ maintainers: []
 resources: 
   home: http://rubyworks.github.com/locat
   code: http://github.com/rubyworks/locat
-  docs: http://wiki.github.com/rubyworks/locat/docs/qed
-  wiki: http://wiki.github.com/rubyworks/locat
+  docs: http://rubydoc.info/gems/locat/frames
   bugs: http://github.com/rubyworks/locat/issues
   mail: http://groups.google.com/group/rubyworks-mailinglist
 repositories: 
