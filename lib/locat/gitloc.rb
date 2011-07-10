@@ -1,8 +1,13 @@
 require 'rubygems'
-#require 'active_support'
 require 'grit'
 require 'open-uri'
 require 'fileutils'
+require 'date'
+
+# Fix 1.8.7 bug
+class Time
+  public :to_date
+end
 
 module LOCat
 

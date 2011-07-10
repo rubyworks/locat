@@ -18,6 +18,9 @@ module LOCat
         options[:config] ||= []
         options[:config] << name
       end
+      opt.on('-t', '--title TITLE', 'title to put on report' do |title|
+        options[:title] = title
+      end
       opt.on('-D', '--debug', 'run in debug mode') do
         $DEBUG = true
       end
@@ -42,6 +45,7 @@ module LOCat
       @output       = nil
       @format       = 'highchart'
       @config       = default_config_files
+      @title        = nil
 
       options.each do |k,v|
         send("#{k}=", v)
@@ -56,6 +60,9 @@ module LOCat
 
     # List of configuration files.
     attr_accessor :config
+
+    # List of configuration files.
+    attr_accessor :title
 
     # Output file.
     attr_reader :output
@@ -87,9 +94,25 @@ module LOCat
       @counter ||= Counter.new(matcher, :files=>files)
     end
 
+    # Access to .ruby metadata. This only really cares about
+    # the `title` field (at this point). If no `.ruby` file
+    # is found, the title is set to the basename of the current
+    # working directory.
+    def metadata
+      @metadata ||= (
+        if File.file?('.ruby')
+          data = YAML.load(File.new('.ruby'))
+        else
+          data = {}
+        end
+        data['title'] = title if title
+        data
+      )
+    end
+
     #
     def template
-      @template ||= Template.new(counter)
+      @template ||= Template.new(counter, metadata)
     end
 
     # Save.

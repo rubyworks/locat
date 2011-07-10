@@ -7,12 +7,16 @@ module LOCat
     DIRECTORY = File.dirname(__FILE__) + '/template'
 
     #
-    def initialize(counter)
-      @counter = counter
+    def initialize(counter, metadata)
+      @counter  = counter
+      @metadata = metadata
     end
 
     #
     attr :counter
+
+    #
+    attr :metadata
 
     #
     def total
@@ -64,7 +68,7 @@ module LOCat
  
     #
     def title
-      "The LOCat on " + metadata['title']
+      "The LOCat on " + (metadata['title'] || File.basename(Dir.pwd))
     end
 
     #
@@ -82,17 +86,6 @@ module LOCat
     end
 
     private
-
-    # Access to .ruby metadata.
-    def metadata
-      @metadata ||= (
-        if File.file?('.ruby')
-          YAML.load(File.new('.ruby'))
-        else
-          {}
-        end
-      )
-    end
 
     #
     def __binding__
