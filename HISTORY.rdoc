@@ -1,5 +1,19 @@
 = RELEASE HISTORY
 
+== 0.1.1 | 2011-07-10
+
+This release fixes a few issues reported by friendly cats.
+It also adds a new command line option to set the document
+title.
+
+Changes:
+
+* Title can now be set via cli.
+* Fix Time#to_date missing method. #3
+* Fix metadata['title'] nil value. #3
+* Add grit dependency. #2
+
+
 == 0.1.0 | 2011-07-08 | The Cat's Meow
 
 This is the first release of LOCat a 
