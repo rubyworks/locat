@@ -1,0 +1,21 @@
+== Test Run
+
+Given an example ruby project with a `.locat` file:
+
+  match 'lib/**.rb' do |file, line|
+    case line
+    when /^\s*#/
+      'Comment'
+    when /^\s*$/
+      'Blank'
+    else
+      'Code'
+    end
+  end
+
+Running the locat command should produce the expected HTML file.
+
+  LOCat.cli('--output', 'locat.html')
+
+  File.assert.exist?('locat.html')
+
