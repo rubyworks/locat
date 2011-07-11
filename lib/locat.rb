@@ -1,3 +1,7 @@
+if defined?(Encoding)
+  Encoding.default_external = Encoding::UTF_8
+end
+
 module LOCat
 
   require 'json'
