@@ -2,7 +2,9 @@
 
 == 0.1.2 | 2011-07-11
 
-Doh. Eoughg said.
+Doh. Can I not write one line of code with a bug creeping
+into it! Any how, this release just fixes a typo in the CLI
+parsing code, and adds a default encoding for Ruby 1.9.
 
 Changes:
 
