@@ -76,6 +76,10 @@ files:
 - lib/locat/template/javascript.js
 - lib/locat/template.rb
 - lib/locat.rb
+- spec/applique/locat.rb
+- spec/fixtures/.locat
+- spec/fixtures/lib/example.rb
+- spec/testrun.rdoc
 - HISTORY.rdoc
 - README.rdoc
 - COPYING.rdoc
