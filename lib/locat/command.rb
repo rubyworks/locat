@@ -18,7 +18,7 @@ module LOCat
         options[:config] ||= []
         options[:config] << name
       end
-      opt.on('-t', '--title TITLE', 'title to put on report' do |title|
+      opt.on('-t', '--title TITLE', 'title to put on report') do |title|
         options[:title] = title
       end
       opt.on('-D', '--debug', 'run in debug mode') do
