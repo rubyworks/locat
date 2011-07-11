@@ -1,6 +1,6 @@
 --- 
 name: locat
-version: 0.1.1
+version: 0.1.2
 title: LOCat
 summary: Lines of Code Attache
 description: LOCat is a customizable Lines-Of-Code analysis tool. LOC might not be the most useful metric in the universe, but it still provides useful information and can be a lot of fun.

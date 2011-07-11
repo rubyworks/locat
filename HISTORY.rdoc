@@ -1,5 +1,15 @@
 = RELEASE HISTORY
 
+== 0.1.2 | 2011-07-11
+
+Doh. Eoughg said.
+
+Changes:
+
+* Fix missing bracket in cli options parsing.
+* Set default encoding.
+
+
 == 0.1.1 | 2011-07-10
 
 This release fixes a few issues reported by friendly cats.

@@ -2,7 +2,7 @@
 name: locat
 version: !ruby/object:Gem::Version 
   prerelease: 
-  version: 0.1.1
+  version: 0.1.2
 platform: ruby
 authors: 
 - Thomas Sawyer
@@ -10,7 +10,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2011-07-10 00:00:00 Z
+date: 2011-07-11 00:00:00 Z
 dependencies: 
 - !ruby/object:Gem::Dependency 
   name: grit
@@ -81,7 +81,6 @@ files:
 - COPYING.rdoc
 homepage: http://rubyworks.github.com/locat
 licenses: 
-- BSD-2-Clause
 - BSD-2-Clause
 post_install_message: 
 rdoc_options: 
