@@ -1,17 +1,16 @@
 = LOCat
 
+{Homepage}[http://rubyworks.github.com/locat] |
+{Development}[http://github.com/rubyworks/locat] |
+{Issue Tracker}[http://github.com/rubyworks/locat/issues] |
+{Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
+
+{<img src="http://travis-ci.org/rubyworks/locat.png" />}[http://travis-ci.org/rubyworks/locat]
+
 
 == DESCRIPTION
 
 LOCat is a fancy Lines-Of-Code analysis tool.
-
-
-== RESOURCES
-
-* {Homepage}[http://rubyworks.github.com/locat]
-* {Development}[http://github.com/rubyworks/locat]
-* {Issue Tracker}[http://github.com/rubyworks/locat/issues]
-* {Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
 
 
 == SYNOPSIS

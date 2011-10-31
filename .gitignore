@@ -1,6 +1,7 @@
+.reap/digest
 .yardoc
-.rdoc
 doc
 pkg
+pages
 tmp
-site/locat.html
+QED.rdoc
