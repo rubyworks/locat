@@ -1,4 +1,4 @@
-#!mast .yardopts .ruby bin lib spec test [A-Z]*.*
+#!mast .ruby .yardopts bin lib man qed spec test [A-Z]*.*
 .ruby
 bin/locat
 lib/locat/command.rb

@@ -1,42 +1,22 @@
 ---
 github: {}
-
-gem:
-  autospec: true
-
+gem: {}
+qed: {}
 dnote:
-  service  : DNote
-  labels   : ~
-  output   : log/DNOTE.rdoc
-
+  output: log/DNOTE.rdoc
 yard:
   yardopts: true
   priority: -1
-
 qedoc:
-  files  : qed/
-  output : doc/QED.rdoc
-  title  : LOCat Demonstrandum
-  active : false
-
+  files: qed/
+  output: QED.rdoc
+  title: LOCat Demonstrandum
 email:
-  service : Email
-  file    : ~
-  subject : ~
-  mailto  : 
+  mailto: 
     - ruby-talk@ruby-lang.org
     - rubyworks-mailinglist@googlegroups.com
-  #from    : transfire@gmail.com
-  #server  : <%= ENV['EMAIL_SERVER'] %>
-  #port    : <%= ENV['EMAIL_PORT'] %>
-  #account : <%= ENV['EMAIL_ACCOUNT'] %>
-  #domain  : <%= ENV['EMAIL_DOMAIN'] %>
-  #login   : <%= ENV['EMAIL_LOGIN'] %>
-  #secure  : <%= ENV['EMAIL_SECURE'] %>
-
 vclog:
-  service  : VClog
-  output   : log/history.rdoc
-  type     : history
-  active   : false
+  output:
+    - log/History.rdoc
+    - log/Chagnes.rdoc
 
