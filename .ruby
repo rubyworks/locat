@@ -13,6 +13,7 @@ alternatives: []
 requirements:
 - name: grit
 - name: ansi
+- name: json
 - name: detroit
   groups:
   - build
