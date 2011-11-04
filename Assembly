@@ -1,22 +1,32 @@
 ---
 github: {}
+
 gem: {}
-qed: {}
-dnote:
-  output: log/DNOTE.rdoc
+
 yard:
   yardopts: true
-  priority: -1
+  priority: 2
+
 qedoc:
   files: qed/
   output: QED.rdoc
   title: LOCat Demonstrandum
+
+qed: {}
+
+locat:
+  output: pages/locat.html
+
+dnote:
+  output: log/Notes.rdoc
+
+vclog:
+  output:
+    - log/History.rdoc
+    - log/Changes.rdoc
+
 email:
   mailto: 
     - ruby-talk@ruby-lang.org
     - rubyworks-mailinglist@googlegroups.com
-vclog:
-  output:
-    - log/History.rdoc
-    - log/Chagnes.rdoc
 
