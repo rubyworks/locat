@@ -1,12 +1,14 @@
 = RELEASE HISTORY
 
-== 0.1.3 | 2011-11-04
+== 0.2.0 | 2011-11-04
 
-This release upgrades the HighCharts javascript
-dependency a notch to 2.1.6.
+This release upgrades the HighCharts javascript dependency a notch
+to v2.1.6, and provides a default configuration when none is provided
+by a project --which makes it even easier to get started using LOCat!
 
 Changes:
 
+* Use default configuration if none supplied by project.
 * Update HighCharts dependency to 2.1.6.
 
 

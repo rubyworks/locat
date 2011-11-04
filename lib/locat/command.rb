@@ -86,7 +86,7 @@ module LOCat
 
     #
     def matcher
-      @matcher ||= Matcher.new(*config)
+      @matcher ||= Matcher.new(*([config].flatten))
     end
 
     #

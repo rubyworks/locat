@@ -9,7 +9,7 @@ module LOCat
       @rules = []
 
       if config_files.empty?
-        raise ArgumentError, 'no configuration files'
+        default
       end
 
       config_files.each do |f|
@@ -34,6 +34,33 @@ module LOCat
     def size
       @rules.size
     end
+
+  private
+
+    # Default configuration if none is supplied by the project.
+    def default
+      match 'lib/**.rb' do |file, line|
+        case line
+        when /^\s*#/
+          'Comment'
+        when /^\s*$/
+          'Blank'
+        else
+          'Code'
+        end
+      end
+      match 'test/**.rb' do |file, line|
+        case line
+        when /^\s*#/
+          'Comment'
+        when /^\s*$/
+          'Blank'
+        else
+          'Test'
+        end
+      end
+    end
+
   end
 
 end

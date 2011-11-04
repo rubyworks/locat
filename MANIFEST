@@ -16,4 +16,5 @@ spec/fixtures/lib/example.rb
 spec/testrun.rdoc
 HISTORY.rdoc
 README.rdoc
+QED.rdoc
 COPYING.rdoc
