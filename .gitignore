@@ -1,8 +1,8 @@
 .reap/digest
 .yardoc
 doc
+log
 pkg
 pages
 tmp
 QED.rdoc
-pages

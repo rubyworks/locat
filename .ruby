@@ -41,10 +41,10 @@ revision: 0
 created: '2011-07-07'
 summary: Lines of Code Attache
 title: LOCat
-version: 0.1.2
+version: 0.1.3
 name: locat
 description: LOCat is a customizable Lines-Of-Code analysis tool. LOC might not be
   the most useful metric in the universe, but it still provides useful information
   and can be a lot of fun.
 organization: Rubyworks
-date: '2011-10-30'
+date: '2011-11-04'

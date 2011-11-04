@@ -1,5 +1,15 @@
 = RELEASE HISTORY
 
+== 0.1.3 | 2011-11-04
+
+This release upgrades the HighCharts javascript
+dependency a notch to 2.1.6.
+
+Changes:
+
+* Update HighCharts dependency to 2.1.6.
+
+
 == 0.1.2 | 2011-07-11
 
 Doh. Can I not write one line of code with a bug creeping
