@@ -19,6 +19,7 @@ locat:
   output: pages/locat.html
 
 dnote:
+  title: Developer's Notes
   output: log/Notes.rdoc
 
 vclog:

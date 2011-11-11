@@ -1,6 +1,6 @@
 ---
 source:
-- meta
+- var
 authors:
 - name: Trans
   email: transfire@gmail.com
@@ -47,4 +47,4 @@ description: LOCat is a customizable Lines-Of-Code analysis tool. LOC might not 
   the most useful metric in the universe, but it still provides useful information
   and can be a lot of fun.
 organization: Rubyworks
-date: '2011-11-04'
+date: '2011-11-11'
