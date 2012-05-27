@@ -9,23 +9,23 @@ yard:
   priority: 2
 
 qedoc:
-  files: qed/
-  output: QED.rdoc
-  title: LOCat Demonstrandum
+  files: demo
+  output: DEMO.rdoc
+  title: LOCat Demonstrations
 
 qed: {}
 
 locat:
-  output: pages/locat.html
+  output: web/locat.html
 
 dnote:
   title: Developer's Notes
-  output: log/Notes.rdoc
+  output: log/notes.html
 
 vclog:
   output:
-    - log/History.rdoc
-    - log/Changes.rdoc
+    - log/history.html
+    - log/changes.html
 
 email:
   mailto: 
