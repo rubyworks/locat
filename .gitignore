@@ -7,4 +7,5 @@ tmp/
 web/
 DEMO.*
 *.gem
+Gemfile.lock
 

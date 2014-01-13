@@ -1,6 +1,6 @@
 # RELEASE HISTORY
 
-## 0.2.1 | 2014-01-13
+## 0.2.2 | 2014-01-13
 
 This is a minor release that deals with a couple of minor issues,
 albeit the issue with a broken grit dependency can cause locat to crash.

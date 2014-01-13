@@ -57,5 +57,5 @@ created: '2011-07-07'
 description: LOCat is a customizable Lines-Of-Code analysis tool. LOC might not be
   the most useful metric in the universe, but it still provides useful information
   and can be a lot of fun.
-version: 0.2.1
+version: 0.2.2
 date: '2014-01-13'
