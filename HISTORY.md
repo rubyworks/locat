@@ -1,6 +1,6 @@
 # RELEASE HISTORY
 
-## 0.2.2 | 2014-01-13
+## 0.2.3 | 2014-01-13
 
 This is a minor release that deals with a couple of minor issues,
 albeit the issue with a broken grit dependency can cause locat to crash.
@@ -9,6 +9,7 @@ Changes:
 
 * If Grit fails then gracely skip git timeline analysis.
 * Don't try to create logging directory if it already exists.
+* Fix missing YAML requirement.
 
 
 ## 0.2.0 | 2011-11-04

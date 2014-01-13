@@ -1,5 +1,7 @@
 module LOCat
 
+  require 'yaml'
+
   #
   def self.cli(*argv)
     options = {}
