@@ -2,7 +2,8 @@
 github:
   gh_pages: web
 
-gem: {}
+gem:
+  active: true
 
 yard:
   yardopts: true
@@ -10,10 +11,11 @@ yard:
 
 qedoc:
   files: demo
-  output: DEMO.rdoc
+  output: DEMO.md
   title: LOCat Demonstrations
 
-qed: {}
+qed:
+  active: true
 
 locat:
   output: web/locat.html
