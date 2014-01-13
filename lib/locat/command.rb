@@ -81,7 +81,10 @@ module LOCat
 
     #
     def default_config_files
-      Dir['.locat{,/*.rb}'].select{ |f| File.file?(f) }
+      files = []
+      files.concat Dir['.locat{,.rb}']
+      files.concat Dir['{etc/,config/}locat.rb']
+      files.select{ |f| File.file?(f) }
     end
 
     #

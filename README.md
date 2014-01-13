@@ -1,11 +1,11 @@
 # LOCat
 
-{Homepage}[http://rubyworks.github.com/locat] |
-{Development}[http://github.com/rubyworks/locat] |
-{Issue Tracker}[http://github.com/rubyworks/locat/issues] |
-{Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
+[Homepage](http://rubyworks.github.com/locat) |
+[Development](http://github.com/rubyworks/locat) |
+[Issue Tracker](http://github.com/rubyworks/locat/issues) |
+[Mailing List](http://groups.google.com/group/rubyworks-mailinglist)
 
-{<img src="http://travis-ci.org/rubyworks/locat.png" />}[http://travis-ci.org/rubyworks/locat]
+[<img src="http://travis-ci.org/rubyworks/locat.png" />](http://travis-ci.org/rubyworks/locat)
 
 
 ## DESCRIPTION
@@ -42,6 +42,8 @@ Define a `.locat` Ruby script in your project, e.g.
 Then run `locat`, e.g.
 
     $ locat -o locat.html
+
+The config file can also be located at `etc/locat.rb` or `config/locat.rb`.
 
 
 ## COPYRIGHT
