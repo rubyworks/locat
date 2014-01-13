@@ -1,5 +1,15 @@
 # RELEASE HISTORY
 
+## 0.2.4 | 2014-01-14
+
+This quick fix release simply corrects the copyright notices at
+the bottom of the generated templates.
+
+Changes:
+
+* Fix copyright notices in templates.
+
+
 ## 0.2.3 | 2014-01-13
 
 This is a minor release that deals with a couple of minor issues,
