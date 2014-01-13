@@ -97,14 +97,14 @@ module LOCat
       @counter ||= Counter.new(matcher, :files=>files)
     end
 
-    # Access to .ruby metadata. This only really cares about
-    # the `title` field (at this point). If no `.ruby` file
+    # Access to .index metadata. This only really cares about
+    # the `title` field (at this point). If no `.index` file
     # is found, the title is set to the basename of the current
     # working directory.
     def metadata
       @metadata ||= (
-        if File.file?('.ruby')
-          data = YAML.load(File.new('.ruby'))
+        if File.file?('.index')
+          data = YAML.load(File.new('.index'))
         else
           data = {}
         end
@@ -136,7 +136,8 @@ module LOCat
     #
     def save_file(text)
       if output
-        FileUtils.mkdir_p(File.dirname(output))
+        dir = File.dirname(output)
+        FileUtils.mkdir_p(dir) unless File.directory?(dir)
         File.open(File.join(output), 'w') do |f|
           f << text
         end
