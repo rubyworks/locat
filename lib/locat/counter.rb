@@ -121,14 +121,16 @@ module LOCat
 
     #
     def scm
-      if scm?
+      return nil unless scm?
+      begin
         gitloc.timeline_table
-      else
+      rescue
+        warn "Can't generate git timeline. Skipping."
         nil
       end
     end
 
-    private
+  private
 
     # Resolve file glob.
     def resolve_files(pattern)

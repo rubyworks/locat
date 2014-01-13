@@ -1,0 +1,61 @@
+---
+revision: 2013
+type: ruby
+sources:
+- var
+authors:
+- name: Trans
+  email: transfire@gmail.com
+organizations: []
+requirements:
+- name: grit
+- name: ansi
+- name: json
+- groups:
+  - build
+  development: true
+  name: detroit
+- groups:
+  - test
+  development: true
+  name: qed
+conflicts: []
+alternatives: []
+resources:
+- type: home
+  uri: http://rubyworks.github.com/locat
+  label: Homepage
+- type: code
+  uri: http://github.com/rubyworks/locat
+  label: Source Code
+- type: docs
+  uri: http://rubydoc.info/gems/locat/frames
+  label: Documentation
+- type: bugs
+  uri: http://github.com/rubyworks/locat/issues
+  label: Issue Tracker
+- type: mail
+  uri: http://groups.google.com/group/rubyworks-mailinglist
+  label: Mailing List
+repositories:
+- name: upstream
+  scm: git
+  uri: git://github.com/rubyworks/locat.git
+categories: []
+copyrights:
+- holder: Rubyworks
+  year: '2011'
+  license: BSD-2-Clause
+customs: []
+paths:
+  lib:
+  - lib
+name: locat
+title: LOCat
+summary: Lines of Code Attache
+created: '2011-07-07'
+description: LOCat is a customizable Lines-Of-Code analysis tool. LOC might not be
+  the most useful metric in the universe, but it still provides useful information
+  and can be a lot of fun.
+version: 0.2.1
+date: '2014-01-13'

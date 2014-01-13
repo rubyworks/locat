@@ -1,6 +1,6 @@
-= RELEASE HISTORY
+# RELEASE HISTORY
 
-== 0.2.0 | 2011-11-04
+## 0.2.0 | 2011-11-04
 
 This release upgrades the HighCharts javascript dependency a notch
 to v2.1.6, and provides a default configuration when none is provided
@@ -12,7 +12,7 @@ Changes:
 * Update HighCharts dependency to 2.1.6.
 
 
-== 0.1.2 | 2011-07-11
+## 0.1.2 | 2011-07-11
 
 Doh. Can I not write one line of code with a bug creeping
 into it! Any how, this release just fixes a typo in the CLI
@@ -24,7 +24,7 @@ Changes:
 * Set default encoding.
 
 
-== 0.1.1 | 2011-07-10
+## 0.1.1 | 2011-07-10
 
 This release fixes a few issues reported by friendly cats.
 It also adds a new command line option to set the document
@@ -38,7 +38,7 @@ Changes:
 * Add grit dependency. #2
 
 
-== 0.1.0 | 2011-07-08 | The Cat's Meow
+## 0.1.0 | 2011-07-08 | The Cat's Meow
 
 This is the first release of LOCat a 
 fancy LOC analysis tool.

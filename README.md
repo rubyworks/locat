@@ -1,4 +1,4 @@
-= LOCat
+# LOCat
 
 {Homepage}[http://rubyworks.github.com/locat] |
 {Development}[http://github.com/rubyworks/locat] |
@@ -8,12 +8,12 @@
 {<img src="http://travis-ci.org/rubyworks/locat.png" />}[http://travis-ci.org/rubyworks/locat]
 
 
-== DESCRIPTION
+## DESCRIPTION
 
 LOCat is a fancy Lines-Of-Code analysis tool.
 
 
-== SYNOPSIS
+## SYNOPSIS
 
 Define a `.locat` Ruby script in your project, e.g.
 
@@ -44,11 +44,11 @@ Then run `locat`, e.g.
     $ locat -o locat.html
 
 
-== COPYRIGHT
+## COPYRIGHT
 
-Copyright (c) 2011 Thomas Sawyer, Rubyworks
+Copyright (c) 2011 Rubyworks
 
 BSD 2-Clause License
 
-See COPYING.rdoc for details.
+See LICENSE.md for details.
 

@@ -42,7 +42,7 @@ module LOCat
 
     #
     def title
-      "'#{repo.head.name}' branch JavaScript LOC #{@per_day ? 'per day' : 'per commit'}"
+      "'#{repo.head.name}' branch LOC #{@per_day ? 'per day' : 'per commit'}"
     end
 
     # Count lines by groups.
