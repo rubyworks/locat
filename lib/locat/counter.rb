@@ -125,7 +125,7 @@ module LOCat
       begin
         gitloc.timeline_table
       rescue
-        warn "Can't generate git timeline. Skipping."
+        warn "Can't generate git timeline. Skipping this portion."
         nil
       end
     end

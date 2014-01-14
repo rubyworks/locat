@@ -2,11 +2,13 @@
 
 ## 0.2.4 | 2014-01-14
 
-This quick fix release simply corrects the copyright notices at
-the bottom of the generated templates.
+This release switch use of grit gem to gitlab-grit. This release also
+includes a simple correctiotn to the copyright notices at the bottom
+of the generated templates.
 
 Changes:
 
+* Use gitlab-grit instead of grit gem.
 * Fix copyright notices in templates.
 
 

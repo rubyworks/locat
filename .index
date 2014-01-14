@@ -8,7 +8,7 @@ authors:
   email: transfire@gmail.com
 organizations: []
 requirements:
-- name: grit
+- name: gitlab-grit
 - name: ansi
 - name: json
 - groups:
@@ -58,4 +58,4 @@ description: LOCat is a customizable Lines-Of-Code analysis tool. LOC might not 
   the most useful metric in the universe, but it still provides useful information
   and can be a lot of fun.
 version: 0.2.4
-date: '2014-01-13'
+date: '2014-01-14'
